@@ -1,13 +1,16 @@
-# file_utils
+# Simple Function Utilities
 
-file_utils is a Python library providing essential utilities for file handling, module importing, and text sanitization.
+This module provides a collection of utility functions for various tasks such as window management, mouse event handling, dynamic module importing, file operations, and string manipulation.
 
 ## Features
-- **Dynamic Module Importing**: Load Python modules and specific attributes from file paths.
-- **File Handling**: Open files with the default application.
-- **File Availability Check**: Wait for files to become accessible.
-- **String Sanitization**: Remove special characters from strings.
+
+- Select and activate a window by name
+- Get mouse click coordinates
+- Dynamically import a module or attribute from a Python file
+- Open a file with the default application
+- Wait for a file to become available for read/write access
+- Remove special characters from a string
 
 ## Installation
 ```sh
-pip install file-utils
+pip install git+https://github.com/SameerArif64/Simple-Functions
