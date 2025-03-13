@@ -42,8 +42,10 @@ def select_active_window(window_name: str):
         window.restore()
         # Bring the window to the front
         window.activate()
+        return True
     else:
         print(f"No windows found with the name '{window_name}'.")
+        return False
 
 def get_mouse_coordinates():
     def on_click(x, y, button, pressed):
