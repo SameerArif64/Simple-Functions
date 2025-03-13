@@ -33,15 +33,15 @@ def select_active_window(window_name: str):
                         print(f"Invalid selection. Please enter a number between 1 and {len(check_windows)}.")
                 except ValueError:
                     print("Invalid input. Please enter a valid number.")
+            # Provide hint to use this window name next time
+            print(f"Hint: Use the window name '{window.title}' from now on for faster selection.")
+            
         # First minimize the window then restore to show on top
         if not window.isMinimized:
             window.minimize()
         window.restore()
         # Bring the window to the front
         window.activate()
-        # Provide hint to use this window name next time
-        print(f"Hint: Use the window name '{window.title}' from now on for faster selection.")
-        
     else:
         print(f"No windows found with the name '{window_name}'.")
 
