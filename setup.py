@@ -7,13 +7,13 @@ with open("requirements.txt") as f:
 
 setup(
     name="simple_func",
-    version="0.1.0",
+    version="0.1.1",
     packages=find_packages(),
     install_requires=requirements,
     dependency_links=dependency_links,
     author="Sameer Arif",
     author_email="supersameer64@gmail.com",
-    description="A Python utility library for file operations, module importing, and text sanitization.",
+    description="A Python utility library for tasks like mouse event handling, dynamic module importing, file operations, and string manipulation.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/SameerArif64/Simple-Functions",

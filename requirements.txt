@@ -1,2 +1,1 @@
-PyGetWindow==0.0.9
 pynput==1.8.0

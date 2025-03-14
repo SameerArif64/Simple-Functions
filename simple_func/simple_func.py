@@ -6,46 +6,6 @@ from os import startfile
 from winsound import Beep
 from importlib import util
 from pynput.mouse import Listener
-import pygetwindow as gw
-
-def select_active_window(window_name: str):
-    """Select the specified window if it is open."""
-    windows = gw.getAllWindows()
-    check_windows = [window for window in windows if window_name.lower() in window.title.lower()]
-    
-    if check_windows:
-        # Print found windows in the requested format
-        print("Found windows:")
-        for i, window in enumerate(check_windows, 1):
-            print(f"{i}: {window.title}")
-        
-        if len(check_windows) == 1:
-            window = check_windows[0]  # If only one window is found, automatically select it
-        else:
-            while True:
-                try:
-                    # Prompt the user to choose the window
-                    choice = int(input(f"Select a window by number (1-{len(check_windows)}): "))
-                    if 1 <= choice <= len(check_windows):
-                        window = check_windows[choice - 1]
-                        break  # Exit the loop after valid input
-                    else:
-                        print(f"Invalid selection. Please enter a number between 1 and {len(check_windows)}.")
-                except ValueError:
-                    print("Invalid input. Please enter a valid number.")
-            # Provide hint to use this window name next time
-            print(f"Hint: Use the window name '{window.title}' from now on for faster selection.")
-            
-        # First minimize the window then restore to show on top
-        if not window.isMinimized:
-            window.minimize()
-        window.restore()
-        # Bring the window to the front
-        window.activate()
-        return True
-    else:
-        print(f"No windows found with the name '{window_name}'.")
-        return False
 
 def get_mouse_coordinates():
     def on_click(x, y, button, pressed):
