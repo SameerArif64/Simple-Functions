@@ -153,4 +153,4 @@ def print_directory_tree(startpath: Path, indent: str = "", exclude: List[str] |
 
         if item.is_dir() and item.name not in exclude:
             extension = "    " if i == len(items) - 1 else "│   "
-            print_tree(item, indent + extension, exclude)
+            print_directory_tree(item, indent + extension, exclude)
