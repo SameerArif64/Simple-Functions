@@ -9,6 +9,7 @@ This module provides a collection of utility functions for various tasks such as
 - Open a file with the default application
 - Wait for a file to become available for read/write access
 - Remove special characters from a string
+- Get directory structure in tree format
 
 ## Installation
 ```sh

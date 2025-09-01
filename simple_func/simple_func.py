@@ -3,6 +3,7 @@ from sys import path as sys_path
 from time import sleep
 from pathlib import Path
 from os import startfile
+from typing import List
 from winsound import Beep
 from importlib import util
 from pynput.mouse import Listener
@@ -124,3 +125,32 @@ def remove_special_characters(input_string: str, lower: bool = True) -> str:
         return output_string.lower()
     else:
         return output_string
+
+def print_directory_tree(startpath: Path, indent: str = "", exclude: List[str] | None = None) -> None:
+    """
+    Recursively print a directory tree structure.
+
+    Args:
+        startpath (Path): The root directory path to start printing from.
+        indent (str, optional): Indentation string used for nested levels. Defaults to "".
+        exclude (list[str], optional): Filenames or directory names to exclude. Defaults to [].
+
+    Example:
+        >>> from pathlib import Path
+        >>> print_tree(Path("."), exclude=[".git", "__pycache__"])
+    """
+    if exclude is None:
+        exclude = []
+
+    items = sorted(
+        (item for item in startpath.iterdir()),
+        key=lambda x: (x.is_file(), x.name.lower())
+    )
+
+    for i, item in enumerate(items):
+        connector = "└── " if i == len(items) - 1 else "├── "
+        print(indent + connector + item.name)
+
+        if item.is_dir() and item.name not in exclude:
+            extension = "    " if i == len(items) - 1 else "│   "
+            print_tree(item, indent + extension, exclude)
